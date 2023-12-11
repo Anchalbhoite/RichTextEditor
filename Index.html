@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="styles.css">
+  <title>Rich Text Editor</title>
+
+</head>
+<body>
+
+<header>
+  <div id="editor-buttons">
+    <button onclick="undo()">Undo</button>
+    <button onclick="redo()">Redo</button>
+    <br>
+   
+  </div>
+</header>
+
+<div id="editor-container">
+
+  <div id="editor" contenteditable="true">
+    Start typing...
+  </div>
+
+  <div class="toolbar">
+    
+    <label>Font Size:
+      <input type="range" id="fontSizeRange" min="1" max="100" value="16" oninput="updateFontSize(this.value)">
+      <span id="fontSizeDisplay">16</span></label>
+    <div>
+    Font Family:
+    <select id="fontFamilySelector" onchange="changeFontFamily()">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="Times New Roman, serif">Times New Roman</option>
+        <option value="Courier New, monospace">Courier New</option>
+        <!-- Add more font options as needed -->
+    </select>
+</div>
+    <div>
+    Font Color:
+    <input type="color" id="fontColorPicker" onchange="changeFontColor()">
+</div>
+    <label>Add Text: <input type="text" id="textInput" oninput="updateEditorContent()"></label>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
